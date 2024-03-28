@@ -11,6 +11,13 @@ const reducer = (prevState, action) => {
         team: prevState.team,
       };
 
+    case 'add_member_to_team':
+      return {
+        employees: prevState.employees,
+        team:[...prevState.team,prevState.employees]
+        
+      };
+
     default:
       return prevState;
   }
@@ -74,7 +81,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <Employess data={data} />
+        <Employess dispatch = {dispatch} data={data} />
         <Team data={data}/>
         {console.log(data)}
         <div>
