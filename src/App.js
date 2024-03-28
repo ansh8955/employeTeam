@@ -14,7 +14,7 @@ const reducer = (prevState, action) => {
     case 'add_member_to_team':
       return {
         employees: prevState.employees,
-        team:[...prevState.team,prevState.employees]
+        team:[...prevState.team,prevState.employees[action.payload - 1]]
         
       };
 
