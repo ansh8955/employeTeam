@@ -1,11 +1,20 @@
 import React from 'react'
 
-const TeamMember = ({name,age}) => {
+const TeamMember = ({name,age,dispatch, id}) => {
   return (
     <div>
       <p>name:{name}</p>
       <p>age:{age}</p>
-      <button>Remove</button>
+      <button 
+      
+      onClick={()=>{
+
+        dispatch({
+
+            type:'remove_from_the_team',payload:id
+        })
+      }}
+      >Remove</button>
     </div>
   )
 }

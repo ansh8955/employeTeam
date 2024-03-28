@@ -18,6 +18,13 @@ const reducer = (prevState, action) => {
         
       };
 
+    case 'aremove_from_the_team':
+      return {
+        employees: prevState.employees,
+        team:[...prevState.team,prevState.employees[action.payload - 1]]
+        
+      };
+
     default:
       return prevState;
   }
@@ -82,7 +89,7 @@ function App() {
     <>
       <div className="container">
         <Employess dispatch = {dispatch} data={data} />
-        <Team data={data}/>
+        <Team dispatch = {dispatch}  data={data}/>
         {console.log(data)}
         <div>
           <input ref={nameInputRef} type="text" />
