@@ -7,9 +7,7 @@ const EmployeCard = ({name,age,dispatch,id,isPartOfTeam}) => {
       <p>age:{age}</p>
       <div>
 
-      {isPartOfTeam == false &&
-      
-        (<button
+      {isPartOfTeam == false && (<button
         
         onClick={()=>{
             dispatch({type:'add_member_to_team',payload:id});
