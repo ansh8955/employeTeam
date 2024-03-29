@@ -24,6 +24,12 @@ const reducer = (prevState, action) => {
         team:[...prevState.team,prevState.employees[action.payload - 1]]
         
       };
+    case 'remove_from_the_team':
+      return {
+        employees: prevState.employees,
+        team:prevState.team.filter((member) => member.id!=action.payload)
+        
+      };
 
     default:
       return prevState;
