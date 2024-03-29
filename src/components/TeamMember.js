@@ -15,6 +15,7 @@ const TeamMember = ({name,age,dispatch, id}) => {
         })
       }}
       >Remove</button>
+     
     </div>
   )
 }

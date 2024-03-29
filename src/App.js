@@ -19,6 +19,16 @@ const reducer = (prevState, action) => {
       };
       
     case 'add_member_to_team':
+
+
+       const employee = prevState.employees(action.payload - 1);
+
+       employee.isPartOfTeam = true;
+
+       const employeesData = prevState.employees;
+
+       employeesData.splice(action.payload - 1, 1,employee)
+
       return {
         employees: prevState.employees,
         team:[...prevState.team,prevState.employees[action.payload - 1]]
@@ -45,6 +55,7 @@ const initialState = {
       email: "jimm0@craigslist.org",
       gender: "Genderqueer",
       age: 80,
+      isPartOfTeam:false
     },
 
     {
@@ -54,6 +65,7 @@ const initialState = {
       email: "jthemann1@skyrock.com",
       gender: "Agender",
       age: 29,
+      isPartOfTeam:false
     },
 
     {
@@ -63,6 +75,7 @@ const initialState = {
       email: "ccarlet2@jalbum.net",
       gender: "Male",
       age: 69,
+      isPartOfTeam:false
     },
 
     {
@@ -72,6 +85,7 @@ const initialState = {
       email: "eallinson3@jugem.jp",
       gender: "Male",
       age: 31,
+      isPartOfTeam:false
     },
 
     {
@@ -81,6 +95,7 @@ const initialState = {
       email: "gshaddick4@rediff.com",
       gender: "Male",
       age: 32,
+      isPartOfTeam:false
     },
   ],
   team: [],
@@ -108,6 +123,8 @@ function App() {
               const newEmp = {
                 name: name,
                 age: age,
+                id:data.employees.length + 1,
+                isPartOfTeam:false
               };
               dispatch({
                 type: "add_new_employee_to_employees_array",
